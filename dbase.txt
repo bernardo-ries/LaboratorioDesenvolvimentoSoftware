@@ -1,0 +1,74 @@
+show databases; --- mostra as databases
+create database "nome"; ---- Cria uma database
+CREATE TABLE pessoa(
+    -> id int AUTO_INCREMENT PRIMARY KEY,
+    -> nome varchar(50) NOT NULL,
+    -> sexo varchar(1) NOT NULL,
+    -> idioma varchar(10) NOT NULL
+    -> );
+--- CRIA UMA TABELA pessoa
+
+show tables -- mostra as tabelas
+desc "tabela" -- mostra a tabela descrita
+INSERT INTO "tabela" (campo1, campo2, campo3)
+	-> VALUES ("VALOR1", "VALOR2", "VALOR3");
+ ==== Adiciona valores na tabela
+
+select * from pessoa == mostra tudo de pessoa
+
+
+INSERT INTO pessoa(nome,sexo,idioma)
+    VALUES
+    ("Gerald","M","Inglês"),
+    ("William","M","Inglês"),
+    ("Umberto","M","Espanhol"),
+    ("Jostein","M","Alemão"),
+    ("Stephen","M","Holandês);
+
+
+CREATE DATABASE escola;
+
+CREATE TABLE aluno(
+    -> id int AUTO_INCREMENT PRIMARY KEY,
+    -> nome varchar(50) NOT NULL,
+    -> idade int NOT NULL,
+    -> curso varchar(50) NOT NULL
+    -> );
+
+INSERT INTO aluno(nome,idade,curso)
+    -> VALUES
+    -> ("Bernardo","21","Ciencia da Computacao");
+
+INSERT INTO aluno(nome,idade,curso)
+    VALUES
+    ("Claudio","26","Odontologia"),
+	("Ricardo",40,"Matematica"),
+	("Joao",30,"Biomedicina");
+
+
+CREATE TABLE professores(
+    -> id int AUTO_INCREMENT PRIMARY KEY,
+    -> nome varchar(50) NOT NULL,
+    -> idade int NOT NULL,
+    -> disciplina varchar(50) NOT NULL);
+
+INSERT INTO professores(nome,idade,disciplina)
+    VALUES
+    ("Herysson",35,"Banco de Dados"),
+("Sylvio",50,"Redes de computadores");
+
+
+CREATE TABLE matriculas(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> id_aluno INT,
+    -> id_professor INT,
+    -> data_matricula DATE,
+    -> FOREIGN KEY (id_aluno) REFERENCES aluno(id),
+    -> FOREIGN KEY (id_professor) REFERENCES professores(id)
+    -> );
+
+INSERT INTO matriculas(id_aluno, id_professor, data_matricula)
+VALUES
+(1, 1, "2023-01-15"),
+(2, 2, "2023-02-20"),
+(3, 3, "2023-03-10");
